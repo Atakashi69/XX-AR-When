@@ -2,16 +2,23 @@ const currentARInput = document.querySelector("#currentAR");
 const currentEXPInput = document.querySelector("#currentEXP");
 const calcEXPButton = document.querySelector("#calcEXP");
 
-currentARInput.addEventListener("input", numbersOnly);
+currentARInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "").replace(/^0/g, "");
+});
 currentARInput.addEventListener("input", resizeInput);
 resizeInput.call(currentARInput);
-currentEXPInput.addEventListener("input", numbersOnly);
+currentARInput.addEventListener("change", resizeSpan);
+
+currentEXPInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+});
 currentEXPInput.addEventListener("input", resizeInput);
 resizeInput.call(currentEXPInput);
+currentEXPInput.addEventListener("change", resizeSpan);
 
 calcEXPButton.addEventListener("click", calcEXP);
 
-function calcEXP(e) {
+function calcEXP() {
     let currentAR = parseInt(currentARInput.value);
     let currentEXP = parseInt(currentEXPInput.value);
     if (isNaN(currentAR) || isNaN(currentEXP)) return;
@@ -49,10 +56,15 @@ function calcEXP(e) {
     document.querySelector(".EXPTable").appendChild(tbl);
 }
 
-function numbersOnly() {
-    this.value = this.value.replace(/[^0-9.]/g, "").replace(/(\..*?)\..*/g, "$1");
-}
-
 function resizeInput() {
     this.style.width = this.value.length + 2 + "ch";
+}
+
+function resizeSpan() {
+    if (currentARInput.value >= 60 || currentARInput.value < 1) return;
+    const currentEXPLine = document.querySelector(".image-label>.currentEXPLine");
+    var percentage = parseInt(currentEXPInput.value) / AREXPBD[parseInt(currentARInput.value) + 1];
+    if (percentage < 0) return;
+    if (percentage > 1) percentage = 1;
+    currentEXPLine.style.width = percentage * 80 + "%";
 }

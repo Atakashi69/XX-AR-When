@@ -56,12 +56,13 @@ form .form-group {
 }
 
 form .form-group .image-label {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 form .form-group .image-label img {
@@ -72,15 +73,28 @@ form .form-group .image-label label {
   margin: 0 0.5rem;
 }
 
+form .form-group .image-label .currentEXPLine,
+form .form-group .image-label .greyEXPLine {
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  left: 10.5%;
+  border-radius: 50px;
+  background-color: #c9f76e;
+  z-index: 2;
+}
+
+form .form-group .image-label .greyEXPLine {
+  width: 80%;
+  background-color: #365063;
+  z-index: 1;
+}
+
 form .form-group input[type="text"] {
   padding: 0.25rem;
   border-top: none;
   border-right: none;
   border-bottom: solid white 3px;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
   border-left: none;
   background-color: transparent;
   outline: none;

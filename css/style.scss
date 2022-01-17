@@ -45,13 +45,29 @@ form {
         align-items: center;
 
         .image-label {
+            position: relative;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             img {
                 width: 8%;
             }
             label {
                 margin: 0 0.5rem;
+            }
+            .currentEXPLine,
+            .greyEXPLine {
+                position: absolute;
+                height: 3px;
+                bottom: 0;
+                left: 10.5%;
+                border-radius: 50px;
+                background-color: hsl(80, 90%, 70%);
+                z-index: 2;
+            }
+            .greyEXPLine {
+                width: 80%;
+                background-color: hsl(205, 30%, 30%);
+                z-index: 1;
             }
         }
 
@@ -60,10 +76,6 @@ form {
             border-top: none;
             border-right: none;
             border-bottom: solid white 3px;
-            border-bottom-left-radius: 10%;
-            border-bottom-right-radius: 10%;
-            border-top-left-radius: 10%;
-            border-top-right-radius: 10%;
             border-left: none;
             background-color: transparent;
             outline: none;
