@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>XXAR When?</title>
+    </head>
+    <body>
+        <form>
+            <div class="player-info">
+                <img src="css/images/aether_pfp.png" />
+                <p>Atakashi</p>
+            </div>
+
+            <div class="form-group">
+                <label for="currentAR" id="currentARLabel">Adventure Rank</label>
+                <input type="text" id="currentAR" value="58" maxlength="2" autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <div class="image-label">
+                    <img src="./css/images/AEPIcon.png" />
+                    <label for="currentEXP" id="currentEXPLabel">Adventure EXP</label>
+                </div>
+                <input type="text" id="currentEXP" value="212251" maxlength="7" autocomplete="off" />
+            </div>
+
+            <button id="calcEXP" type="button">Посчитать</button>
+        </form>
+        <div class="EXPTable">
+            <p>Даты следующих повышений</p>
+        </div>
+
+        <script src="js/AREXPBD.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
