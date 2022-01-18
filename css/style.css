@@ -77,7 +77,7 @@ form .form-group .image-label .currentEXPLine,
 form .form-group .image-label .greyEXPLine {
   position: absolute;
   height: 3px;
-  bottom: -1px;
+  bottom: -0.025rem;
   left: 10%;
   border-radius: 50px;
   background-color: #c9f76e;
