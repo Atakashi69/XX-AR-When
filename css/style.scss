@@ -65,18 +65,16 @@ form {
                 z-index: 2;
             }
             .greyEXPLine {
-                width: 90%;
-                background-color: hsl(205, 30%, 30%);
+                width: 89%;
+                background-color: hsl(200, 30%, 30%);
                 z-index: 1;
             }
         }
 
         input[type="text"] {
             padding: 0.25rem;
-            border-top: none;
-            border-right: none;
+            border: none;
             border-bottom: solid white 3px;
-            border-left: none;
             background-color: transparent;
             outline: none;
             text-align: right;
