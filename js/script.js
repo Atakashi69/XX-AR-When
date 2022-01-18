@@ -66,5 +66,5 @@ function resizeSpan() {
     var percentage = parseInt(currentEXPInput.value) / AREXPBD[parseInt(currentARInput.value) + 1];
     if (percentage < 0) return;
     if (percentage > 1) percentage = 1;
-    currentEXPLine.style.width = percentage * 90 + "%";
+    currentEXPLine.style.width = percentage * 89 + "%";
 }
