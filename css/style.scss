@@ -60,7 +60,7 @@ form {
                 height: 3px;
                 bottom: -0.025rem;
                 left: 10%;
-                border-radius: 50px;
+                border-radius: 999px;
                 background-color: hsl(80, 90%, 70%);
                 z-index: 2;
             }
@@ -96,7 +96,7 @@ form {
         padding: 0.5rem 1rem;
         background-color: hsl(225, 75%, 55%);
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         text-decoration: none;
         outline: none;
         color: white;
