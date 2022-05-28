@@ -6,29 +6,39 @@ currentARInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "").replace(/^0/g, "");
 });
 currentARInput.addEventListener("input", resizeInput);
+currentARInput.value = getCookie("AR") || 0;
 resizeInput.call(currentARInput);
 currentARInput.addEventListener("change", resizeSpan);
+resizeSpan.call(currentARInput);
+currentARInput.addEventListener("change", function () {
+    setCookie("AR", this.value);
+});
 
 currentEXPInput.addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, "");
 });
 currentEXPInput.addEventListener("input", resizeInput);
+currentEXPInput.value = getCookie("EXP") || 0;
 resizeInput.call(currentEXPInput);
 currentEXPInput.addEventListener("change", resizeSpan);
+resizeSpan.call(currentEXPInput);
+currentEXPInput.addEventListener("change", function () {
+    setCookie("EXP", this.value);
+});
 
 calcEXPButton.addEventListener("click", calcEXP);
 
 function calcEXP() {
-    let currentAR = parseInt(currentARInput.value);
-    let currentEXP = parseInt(currentEXPInput.value);
+    var currentAR = parseInt(currentARInput.value);
+    var currentEXP = parseInt(currentEXPInput.value);
     if (isNaN(currentAR) || isNaN(currentEXP)) return;
 
     const ctbl = document.querySelector("table");
     if (ctbl) document.querySelector(".EXPTable").removeChild(ctbl);
     const tbl = document.createElement("table");
 
-    for (let i = currentAR + 1, expToNextAR = 0; i <= 60; i++) {
-        for (let j = 1; j <= i - currentAR; j++) expToNextAR += AREXPBD[currentAR + j];
+    for (var i = currentAR + 1, expToNextAR = 0; i <= 60; i++) {
+        for (var j = 1; j <= i - currentAR; j++) expToNextAR += AREXPDB[currentAR + j];
 
         var dailyXP = 1;
         if (i < 15) dailyXP = 2100;
@@ -57,14 +67,50 @@ function calcEXP() {
 }
 
 function resizeInput() {
-    this.style.width = this.value.length + 2 + "ch";
+    this.style.width = (this.value.length == 0 ? 1 : this.value.length) + 1 + "ch";
 }
 
 function resizeSpan() {
     if (currentARInput.value >= 60 || currentARInput.value < 1) return;
     const currentEXPLine = document.querySelector(".image-label>.currentEXPLine");
-    var percentage = parseInt(currentEXPInput.value) / AREXPBD[parseInt(currentARInput.value) + 1];
+    var percentage = parseInt(currentEXPInput.value) / AREXPDB[parseInt(currentARInput.value) + 1];
     if (percentage < 0) return;
     if (percentage > 1) percentage = 1;
     currentEXPLine.style.width = percentage * 89 + "%";
+}
+
+function getCookie(name) {
+    var matches = document.cookie.match(
+        new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)")
+    );
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function setCookie(name, value, options = {}) {
+    options = {
+        path: "/",
+        ...options,
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    var updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (var optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        var optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
+}
+
+function deleteCookie(name) {
+    setCookie(name, "", {
+        "max-age": -1,
+    });
 }
