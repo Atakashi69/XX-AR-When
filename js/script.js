@@ -11,7 +11,7 @@ resizeInput.call(currentARInput);
 currentARInput.addEventListener("change", resizeSpan);
 resizeSpan.call(currentARInput);
 currentARInput.addEventListener("change", function () {
-    setCookie("AR", this.value);
+    setCookie("AR", this.value, {'max-age': 60 * 60 * 24 * 30});
 });
 
 currentEXPInput.addEventListener("input", function () {
@@ -23,7 +23,7 @@ resizeInput.call(currentEXPInput);
 currentEXPInput.addEventListener("change", resizeSpan);
 resizeSpan.call(currentEXPInput);
 currentEXPInput.addEventListener("change", function () {
-    setCookie("EXP", this.value);
+    setCookie("EXP", this.value, {'max-age': 60 * 60 * 24 * 30});
 });
 
 calcEXPButton.addEventListener("click", calcEXP);
