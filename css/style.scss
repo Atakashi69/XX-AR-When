@@ -9,15 +9,21 @@
     src: url(./fonts/genshin.ttf);
 }
 
+@font-face {
+    font-family: "HSRFont";
+    src: url(./fonts/hsr.ttf);
+}
+
+body {
+    display: flex;
+}
+
 form {
     width: 435px;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 16px;
+    padding: 16px;
     display: table;
     color: white;
-    font-family: "GenshinFont";
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
-        no-repeat center/cover url(./images/namecardForm.png);
 
     .player-info {
         display: flex;
@@ -25,21 +31,19 @@ form {
         img {
             width: 20%;
             border: solid white 3px;
-            background-color: hsl(25, 60%, 60%);
             border-radius: 50%;
         }
 
         p {
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-            margin: 0.5rem 1rem;
-            font-size: 1.6rem;
+            margin: 8px 16px;
+            font-size: 24px;
         }
     }
 
     .form-group {
-        margin: 0.5rem 0;
+        margin: 8px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -49,58 +53,69 @@ form {
             display: flex;
             align-items: flex-start;
             img {
-                width: 8%;
+                width: 25px;
             }
             label {
-                margin: 0 0.5rem;
+                margin: 0 10px;
             }
-            .currentEXPLine,
-            .greyEXPLine {
+            .currentAEXPLine,
+            .greyAEXPLine,
+            .currentTEXPLine,
+            .greyTEXPLine {
                 position: absolute;
                 height: 3px;
-                bottom: -0.025rem;
-                left: 10%;
+                bottom: 0;
+                left: 35px;
                 border-radius: 999px;
-                background-color: hsl(80, 90%, 70%);
-                z-index: 2;
             }
-            .greyEXPLine {
-                width: 89%;
+            .greyAEXPLine {
+                width: 285px;
                 background-color: hsl(200, 30%, 30%) !important;
                 z-index: 1;
+            }
+            .greyTEXPLine {
+                width: 285px;
+                background-color: hsl(200, 30%, 30%) !important;
+                z-index: 1;
+            }
+            .currentAEXPLine {
+                background-color: hsl(80, 90%, 70%) !important;
+                z-index: 2;
+            }
+            .currentTEXPLine {
+                background-color: hsl(45, 15%, 55%) !important;
+                z-index: 2;
             }
         }
 
         input[type="text"] {
-            padding: 0.25rem;
+            padding: 4px;
             border: none;
             border-bottom: solid white 3px;
             background-color: transparent;
             outline: none;
             text-align: right;
             color: white;
-            font-family: "GenshinFont";
         }
         #currentARLabel,
         #currentAR {
-            font-size: 1.2rem;
+            font-size: 16px;
         }
-        #currentEXPLabel,
-        #currentEXP {
-            font-size: 0.8rem;
+        #currentAEXPLabel,
+        #currentAEXP {
+            font-size: 12px;
         }
     }
 
     button {
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
+        margin-top: 8px;
+        padding: 8px 16px;
         background-color: hsl(225, 75%, 55%);
         border: none;
         border-radius: 5px;
         text-decoration: none;
         outline: none;
         color: white;
-        font-family: "GenshinFont";
         transition: background-color 0.25s;
 
         &:hover {
@@ -115,29 +130,66 @@ form {
 
 .EXPTable {
     width: 435px;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 16px;
+    padding: 16px;
     display: table;
     text-align: center;
     color: white;
-    font-family: "GenshinFont";
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%),
-        no-repeat top/cover url(./images/namecardTable.png);
 
     p {
-        font-size: 1.2rem;
+        font-size: 18px;
     }
 
     table {
         width: 100%;
-        margin: 1rem 0;
+        margin: 16px 0;
         border: 1px solid white;
         border-spacing: 0;
         text-align: center;
 
         tr td {
-            padding: 0.5rem 0;
+            padding: 8px 0;
             border: 1px solid white;
         }
+    }
+}
+
+.calc-group.genshin {
+    * {
+        font-family: "GenshinFont";
+    }
+    form {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
+            no-repeat center/cover url(./images/namecardGenshin.png);
+
+        .player-info {
+            img {
+                background-color: hsl(50, 5%, 50%);
+            }
+        }
+    }
+    .EXPTable {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%),
+            no-repeat top/cover url(./images/tableBGGenshin.png);
+    }
+}
+
+.calc-group.hsr {
+    * {
+        font-family: "HSRFont";
+    }
+    form {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
+            no-repeat center/cover url(./images/namecardHSR.png);
+
+        .player-info {
+            img {
+                background-color: hsl(50, 5%, 50%);
+            }
+        }
+    }
+    .EXPTable {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%),
+            no-repeat top/cover url(./images/tableBGHSR.png);
     }
 }

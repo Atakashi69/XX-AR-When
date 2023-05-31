@@ -1,165 +1,168 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @font-face {
   font-family: "GenshinFont";
   src: url(./fonts/genshin.ttf);
 }
+@font-face {
+  font-family: "HSRFont";
+  src: url(./fonts/hsr.ttf);
+}
+body {
+  display: flex;
+}
 
 form {
   width: 435px;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 16px;
+  padding: 16px;
   display: table;
   color: white;
-  font-family: "GenshinFont";
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0))), no-repeat center/cover url(./images/namecardForm.png);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), no-repeat center/cover url(./images/namecardForm.png);
 }
-
 form .player-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 form .player-info img {
   width: 20%;
   border: solid white 3px;
-  background-color: #d68f5c;
   border-radius: 50%;
 }
-
 form .player-info p {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-  margin: 0.5rem 1rem;
-  font-size: 1.6rem;
+  margin: 8px 16px;
+  font-size: 24px;
 }
-
 form .form-group {
-  margin: 0.5rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  margin: 8px 0;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 form .form-group .image-label {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
 }
-
 form .form-group .image-label img {
-  width: 8%;
+  width: 25px;
 }
-
 form .form-group .image-label label {
-  margin: 0 0.5rem;
+  margin: 0 10px;
 }
-
-form .form-group .image-label .currentEXPLine,
-form .form-group .image-label .greyEXPLine {
+form .form-group .image-label .currentAEXPLine,
+form .form-group .image-label .greyAEXPLine,
+form .form-group .image-label .currentTEXPLine,
+form .form-group .image-label .greyTEXPLine {
   position: absolute;
   height: 3px;
-  bottom: -0.025rem;
-  left: 10%;
+  bottom: 0;
+  left: 35px;
   border-radius: 999px;
-  background-color: #c9f76e;
-  z-index: 2;
 }
-
-form .form-group .image-label .greyEXPLine {
-  width: 89%;
-  background-color: #365463 !important;
+form .form-group .image-label .greyAEXPLine {
+  width: 285px;
+  background-color: hsl(200, 30%, 30%) !important;
   z-index: 1;
 }
-
-form .form-group input[type="text"] {
-  padding: 0.25rem;
+form .form-group .image-label .greyTEXPLine {
+  width: 285px;
+  background-color: hsl(200, 30%, 30%) !important;
+  z-index: 1;
+}
+form .form-group .image-label .currentAEXPLine {
+  background-color: hsl(80, 90%, 70%) !important;
+  z-index: 2;
+}
+form .form-group .image-label .currentTEXPLine {
+  background-color: hsl(45, 15%, 55%) !important;
+  z-index: 2;
+}
+form .form-group input[type=text] {
+  padding: 4px;
   border: none;
   border-bottom: solid white 3px;
   background-color: transparent;
   outline: none;
   text-align: right;
   color: white;
-  font-family: "GenshinFont";
 }
-
 form .form-group #currentARLabel,
 form .form-group #currentAR {
-  font-size: 1.2rem;
+  font-size: 16px;
 }
-
-form .form-group #currentEXPLabel,
-form .form-group #currentEXP {
-  font-size: 0.8rem;
+form .form-group #currentAEXPLabel,
+form .form-group #currentAEXP {
+  font-size: 12px;
 }
-
 form button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #3661e2;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: hsl(225, 75%, 55%);
   border: none;
   border-radius: 5px;
   text-decoration: none;
   outline: none;
   color: white;
-  font-family: "GenshinFont";
-  -webkit-transition: background-color 0.25s;
   transition: background-color 0.25s;
 }
-
 form button:hover {
   cursor: pointer;
-  background-color: #4d73e6;
+  background-color: hsl(225, 75%, 60%);
 }
-
 form button:active {
-  background-color: #2050df;
+  background-color: hsl(225, 75%, 50%);
 }
 
 .EXPTable {
   width: 435px;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 16px;
+  padding: 16px;
   display: table;
   text-align: center;
   color: white;
-  font-family: "GenshinFont";
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, rgba(0, 0, 0, 0.5)), color-stop(0%, rgba(0, 0, 0, 0))), no-repeat top/cover url(./images/namecardTable.png);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%), no-repeat top/cover url(./images/namecardTable.png);
 }
-
 .EXPTable p {
-  font-size: 1.2rem;
+  font-size: 18px;
 }
-
 .EXPTable table {
   width: 100%;
-  margin: 1rem 0;
+  margin: 16px 0;
   border: 1px solid white;
   border-spacing: 0;
   text-align: center;
 }
-
 .EXPTable table tr td {
-  padding: 0.5rem 0;
+  padding: 8px 0;
   border: 1px solid white;
 }
-/*# sourceMappingURL=style.css.map */
+
+.calc-group.genshin * {
+  font-family: "GenshinFont";
+}
+.calc-group.genshin form {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), no-repeat center/cover url(./images/namecardGenshin.png);
+}
+.calc-group.genshin form .player-info img {
+  background-color: hsl(50, 5%, 50%);
+}
+.calc-group.genshin .EXPTable {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%), no-repeat top/cover url(./images/tableBGGenshin.png);
+}
+
+.calc-group.hsr * {
+  font-family: "HSRFont";
+}
+.calc-group.hsr form {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), no-repeat center/cover url(./images/namecardHSR.png);
+}
+.calc-group.hsr form .player-info img {
+  background-color: hsl(50, 5%, 50%);
+}
+.calc-group.hsr .EXPTable {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0) 0%), no-repeat top/cover url(./images/tableBGHSR.png);
+}/*# sourceMappingURL=style.css.map */

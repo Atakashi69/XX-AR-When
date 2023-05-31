@@ -7,33 +7,67 @@
         <title>XX AR When?</title>
     </head>
     <body>
-        <form>
-            <div class="player-info">
-                <img src="css/images/aether_pfp.png" />
-                <p>Atakashi#7639</p>
-            </div>
-
-            <div class="form-group">
-                <label for="currentAR" id="currentARLabel">Adventure Rank</label>
-                <input type="text" id="currentAR" value="1" maxlength="2" autocomplete="off" />
-            </div>
-            <div class="form-group">
-                <div class="image-label">
-                    <img src="./css/images/AEPIcon.png" />
-                    <label for="currentEXP" id="currentEXPLabel">Adventure EXP</label>
-                    <span class="currentEXPLine"></span>
-                    <span class="greyEXPLine"></span>
+        <div class="calc-group genshin">
+            <form>
+                <div class="player-info">
+                    <img src="css/images/PFPGenshin.png" />
+                    <p>Atakashi#7639</p>
                 </div>
-                <input type="text" id="currentEXP" value="0" maxlength="7" autocomplete="off" />
-            </div>
 
-            <button id="calcEXP" type="button">Посчитать</button>
-        </form>
-        <div class="EXPTable">
-            <p>Даты следующих повышений</p>
+                <div class="form-group">
+                    <label for="currentAR" id="currentARLabel">Adventure Rank</label>
+                    <input type="text" id="currentAR" value="1" maxlength="2" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <div class="image-label">
+                        <img src="./css/images/AEPIcon.png" />
+                        <label for="currentAEXP" id="currentAEXPLabel">Adventure EXP</label>
+                        <span class="currentAEXPLine"></span>
+                        <span class="greyAEXPLine"></span>
+                    </div>
+                    <input type="text" id="currentAEXP" value="0" maxlength="7" autocomplete="off" />
+                </div>
+
+                <button id="calcAEXP" type="button">Посчитать</button>
+            </form>
+            <div class="EXPTable">
+                <p>Даты следующих повышений</p>
+            </div>
+        </div>
+
+        <div class="calc-group hsr">
+            <form>
+                <div class="player-info">
+                    <img src="css/images/PFPHSR.png" />
+                    <p>Atakashi#7639</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="currentTL" id="currentTLLabel">Trailblaze Level</label>
+                    <input type="text" id="currentTL" value="1" maxlength="2" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <div class="image-label">
+                        <img src="./css/images/TEPIcon.png" />
+                        <label for="currentTEXP" id="currentTEXPLabel">Trailblaze EXP</label>
+                        <span class="currentTEXPLine"></span>
+                        <span class="greyTEXPLine"></span>
+                    </div>
+                    <input type="text" id="currentTEXP" value="0" maxlength="7" autocomplete="off" />
+                </div>
+
+                <button id="calcTEXP" type="button">Посчитать</button>
+            </form>
+            <div class="EXPTable">
+                <p>Даты следующих повышений</p>
+            </div>
         </div>
 
         <script src="js/AREXPDB.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/TLEXPDB.js"></script>
+        <script src="js/cookiesUtil.js"></script>
+        <script src="js/style.js"></script>
+        <script src="js/calcAEXP.js"></script>
+        <script src="js/calcTEXP.js"></script>
     </body>
 </html>
