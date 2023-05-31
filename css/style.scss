@@ -43,6 +43,7 @@ form {
     }
 
     .form-group {
+        min-height: 26px;
         margin: 8px 0;
         display: flex;
         justify-content: space-between;
@@ -98,16 +99,22 @@ form {
             color: white;
         }
         #currentARLabel,
-        #currentAR {
+        #currentAR,
+        #currentTLLabel,
+        #currentTL {
             font-size: 16px;
         }
         #currentAEXPLabel,
-        #currentAEXP {
+        #currentAEXP,
+        #currentTEXPLabel,
+        #currentTEXP {
             font-size: 12px;
         }
     }
 
     button {
+        min-width: 100px;
+        min-height: 33px;
         margin-top: 8px;
         padding: 8px 16px;
         background-color: hsl(225, 75%, 55%);
@@ -130,6 +137,7 @@ form {
 
 .EXPTable {
     width: 435px;
+    min-height: 55px;
     margin: 16px;
     padding: 16px;
     display: table;
