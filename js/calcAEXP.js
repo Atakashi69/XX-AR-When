@@ -12,7 +12,7 @@ function calcAEXP() {
     for (let i = currentAR + 1, expToNextAR = 0; i <= 60; i++) {
         for (let j = 1; j <= i - currentAR; j++) expToNextAR += AREXPDB[currentAR + j];
 
-        let dailyXP = 1;
+        let dailyXP = -1;
         if (i < 15) dailyXP = 2100;
         else if (i < 25) dailyXP = 2200;
         else if (i < 35) dailyXP = 2300;
