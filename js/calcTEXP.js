@@ -9,7 +9,7 @@ function calcTEXP() {
     if (ctbl) document.querySelector(".hsr .EXPTable").removeChild(ctbl);
     const tbl = document.createElement("table");
 
-    for (let i = currentTL + 1, expToNextTL = 0; i <= 67; i++) {
+    for (let i = currentTL + 1, expToNextTL = 0; i <= 68; i++) {
         for (let j = 1; j <= i - currentTL; j++) expToNextTL += TLEXPDB[currentTL + j];
 
         let dailyXP = 1;
