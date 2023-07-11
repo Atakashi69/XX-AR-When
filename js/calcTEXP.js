@@ -12,13 +12,14 @@ function calcTEXP() {
     for (let i = currentTL + 1, expToNextTL = 0; i <= 68; i++) {
         for (let j = 1; j <= i - currentTL; j++) expToNextTL += TLEXPDB[currentTL + j];
 
-        let dailyXP = 1;
-        if (i < 20) dailyXP = 2200;
-        else if (i < 30) dailyXP = 2350;
-        else if (i < 40) dailyXP = 2500;
-        else if (i < 50) dailyXP = 2650;
-        else if (i < 60) dailyXP = 2800;
-        else dailyXP = 2950;
+        //daily XP + weekly XP from SU 
+        let dailyXP = -1;
+        if (i < 20) dailyXP = 2200 + 800 / 7;
+        else if (i < 30) dailyXP = 2350 + 800 / 7;
+        else if (i < 40) dailyXP = 2500 + 800 / 7;
+        else if (i < 50) dailyXP = 2650 + 800 / 7;
+        else if (i < 60) dailyXP = 2800 + 800 / 7;
+        else dailyXP = 2950 + 800 / 7;
 
         let daysToNextTL = Math.ceil((expToNextTL - currentTEXP) / dailyXP);
         let date = new Date();
